@@ -6,6 +6,12 @@
     <title>PHP Page To List Students</title>
     <?php
 
+    session_start();
+    if (!isset($_SESSION["login"])) {
+        header("Location: authentication.php");
+        exit;
+    }
+
     require_once '../Service/ListStudentsByFiliereService.php';
     ?>
 </head>

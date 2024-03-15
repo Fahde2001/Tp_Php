@@ -9,11 +9,11 @@
   ),
   4 => 
   array (
-    'id' => 5,
+    'id' => '5',
     'name' => 'Charlie',
     'prenom' => 'Brown',
-    'note' => 12,
-    'filier' => 3,
+    'note' => '14',
+    'filier' => '1',
   ),
   5 => 
   array (
@@ -30,14 +30,6 @@
     'prenom' => 'bickham',
     'note' => '16',
     'filier' => '1',
-  ),
-  7 => 
-  array (
-    'id' => 8,
-    'name' => 'Grace',
-    'prenom' => 'Hill',
-    'note' => 13,
-    'filier' => 3,
   ),
   10 => 
   array (
@@ -93,6 +85,14 @@
     'name' => 'Fahde',
     'prenom' => 'othmane',
     'note' => '15',
+    'filier' => '1',
+  ),
+  17 => 
+  array (
+    'id' => 16,
+    'name' => 'fahde',
+    'prenom' => 'othmane',
+    'note' => '12',
     'filier' => '1',
   ),
 );

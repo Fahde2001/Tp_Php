@@ -71,18 +71,44 @@
     </style>
 </head>
 <body>
+<?php
+if(isset($_COOKIE['selected_color'])) {
+    $selectedColor = $_COOKIE['selected_color'];
+    if($selectedColor === 'black' || $selectedColor === 'white') {
+        echo "<style>body { background-color: $selectedColor; }</style>";
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['color'])) {
+        $selectedColor = $_POST['color'];
+        setcookie("selected_color", $selectedColor);
+        if($selectedColor === 'black' || $selectedColor === 'white') {
+            echo "<style>body { background-color: $selectedColor; }</style>";
+        }
+    }
+}
+?>
 
 <header>
     <ul>
         <li><a href="../View/ListFilierView.php">List filier</a></li>
         <li><a href="../View/AddNewStudentView.php">Add Student</a></li>
         <li><a href="../View/AllStudentsView.php">List All Students</a></li>
+        <li><a href="../Service/LogOut.php">LogOut</a></li>
     </ul>
 </header>
 
 
 <footer>
     <p>&copy; <?php echo date("Y"); ?> My Website. All rights reserved.</p>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <label>Black</label>
+        <input type="radio" name="color" value="black">
+        <label>White</label>
+        <input type="radio" name="color" value="white">
+        <button type="submit">Submit</button>
+    </form>
 </footer>
 
 </body>

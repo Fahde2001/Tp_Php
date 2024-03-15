@@ -6,10 +6,27 @@
     <title>All Students</title>
 
     <?php
+    session_start();
+    if (!isset($_SESSION['login'])) {
+        header("Location: authentication.php");
+        exit;
+    }
+    if(isset($_COOKIE["selected_color"])){
+        $setColor=$_COOKIE['selected_color'];
+        $color="";
+        if($setColor==='black'){
+            $color="white";
+        }else{
+            $color='black';
+        }
+    }
     require_once '../Service/ListStudentsByFiliereService.php'
     ?>
 
     <style>
+        *{
+            color: <?php echo $color ;?>;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
